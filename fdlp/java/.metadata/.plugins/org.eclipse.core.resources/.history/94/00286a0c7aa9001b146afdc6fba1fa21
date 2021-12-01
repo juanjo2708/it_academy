@@ -1,0 +1,129 @@
+package Lambda_1;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import Lambda_1.Persona.Sex;
+
+/**
+ * L'expressió Lambda s'utilitza per proporcionar la implementació 
+ * d'una interfície que tingui una interfície funcional.
+ * 
+ * @author juanj
+ *
+ */
+
+@FunctionalInterface
+interface Sayable {
+	public String say(String name);
+}
+
+@FunctionalInterface
+interface Addable{
+	public int add(int a, int b);
+}
+
+@FunctionalInterface
+interface Percentatge{
+	public double calculaPercentatge (double quantitat, int percentatge);
+}
+
+
+public class LambdaRun {
+
+	public static void main(String[] args) {
+		
+		Product producte;
+		
+		
+		// ---- Lambda expression with single parameter.
+		Sayable s1 = (name)->{
+			return "Hello "+name;
+		};
+		
+		Sayable s2 = (name)->{
+			return "Hello 2 "+name;
+		};
+		
+		System.out.println("--- Expressions Lambda amb un únic paràmetre");
+		System.out.println(s1.say("Joanet"));
+		System.out.println(s1.say("Laura"));
+		
+		System.out.println(s2.say("juanjo"));
+				
+		// ---- Lambda expression with single parameter.
+		System.out.println("--- Expressions Lambda amb multiples paràmetres suma, i resta");
+		Addable ad1 = (a,b)->(a+b);
+		System.out.println(ad1.add(10, 20));
+		
+		ad1=(a,b)->(a-b);
+		System.out.println(ad1.add(30, 10));
+		
+		System.out.println("--- Expressions Lambda amb multiples paràmetres percentatge");
+		Percentatge pc=(a,b)->(a*b/100);
+		System.out.println(pc.calculaPercentatge(1000, 10));
+		
+		// Java Lambda Expression Foreach Loop
+		System.out.println("Lambda expression, forEach loop");
+		List<String> llista = new ArrayList<String>();
+		
+		llista.add("joan");
+		llista.add("joan1");
+		llista.add("joan2");
+		llista.add("joan3");
+		llista.add("joan4");
+		
+		llista.forEach((n)->System.out.println(n));
+			
+		//Java Lambda Expression: Comparator
+		List<Product> llistaProductes = new ArrayList<Product>();
+		
+	    producte = new Product (1,"hp pavilion",3200);
+	    llistaProductes.add(producte);
+	    producte = new Product (2,"Asus Acer II",2200);
+	    llistaProductes.add(producte);
+	    producte = new Product (3,"Lenovo S3 ",3280);
+	    llistaProductes.add(producte);
+	    producte = new Product (4,"Acer S300",2900);
+	    llistaProductes.add(producte);
+	    producte = new Product (5,"Acer think",2800);	
+	    
+	    llistaProductes.add(producte);		
+	    
+	    Collections.sort(llistaProductes, (p1,p2)->{
+	    	return p1.getNom().compareTo(p2.getNom());
+	    });
+	    
+	    for(Product p:llistaProductes) {
+	    	System.out.println(p);
+	    }
+	    
+	    List<Persona> persones = new ArrayList<Persona>();
+	    
+	    Persona persona = new Persona("joan","emilio 1");
+	    persona.setGender(Sex.MALE);
+	    persones.add(persona);	    
+	    
+	    persona = new Persona("Montserrat","emilio 2");
+	    persona.setGender(Sex.FEMALE);
+	    persones.add(persona);
+	    
+	    persona = new Persona("jofre","emilio 3");
+	    persona.setGender(Sex.MALE);
+	    persones.add(persona);
+	    
+	    persona = new Persona("Sussana","emilio 4");
+	    persona.setGender(Sex.FEMALE);
+	    persones.add(persona);
+	    
+	    persones
+	    	.stream()
+	    	.filter(e-> e.getGender()==Persona.Sex.MALE)
+	    	.forEach(e-> System.out.println(e.getName()));
+	    
+	    
+	    
+	    
+	}
+}

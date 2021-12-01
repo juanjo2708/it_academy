@@ -1,0 +1,6 @@
+package Lambda_1;
+
+public class Persona {
+	private Sex enum {MALE, FEMALE;}
+	
+}

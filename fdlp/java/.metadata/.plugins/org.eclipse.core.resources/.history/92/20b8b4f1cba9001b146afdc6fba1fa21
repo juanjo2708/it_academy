@@ -1,0 +1,86 @@
+package Lambda_1;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+public class Persona {
+	// PROPIETATS --------------------------
+	public  enum Sex {MALE, FEMALE;};
+	private String name;
+	private int age;
+	private LocalDate birthdate;
+	private Sex gender;
+	private String email;
+	
+	
+	//CONSTRUCTORS ---------------------------------
+	public Persona(String nom, String email, LocalDate birthdate) {
+		this.name=nom;
+		this.email=email;
+		this.birthdate=birthdate;
+		this.age=getEdat(this.birthdate);
+	}
+	
+	//GETTERS, SETTERS i toString --------------------
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public LocalDate getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(LocalDate birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public Sex getGender() {
+		return gender;
+	}
+
+	public void setGender(Sex gender) {
+		this.gender = gender;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	
+	
+	@Override
+	public String toString() {
+		return "Persona [name=" + name + ", age=" + age + ", birthdate=" + birthdate + ", gender=" + gender + ", email="
+				+ email + "]";
+	}
+
+	public int getEdat(LocalDate birthday) {
+		int anys=0;
+		if (birthday != null) {
+			anys = Period.between(birthdate, LocalDate.now()).getYears();
+		} 
+		
+		return anys;
+	}
+	
+	
+	
+}

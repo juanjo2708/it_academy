@@ -1,0 +1,12 @@
+package TreeSet;
+
+public class TreeSet {
+
+	public static void main(String[] args) {
+		TreeSet <String> persones = new TreeSet <String>();
+		
+		
+
+	}
+
+}

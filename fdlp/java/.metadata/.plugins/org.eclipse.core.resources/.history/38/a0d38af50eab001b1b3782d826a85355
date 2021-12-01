@@ -1,0 +1,18 @@
+package TreeSet;
+
+import java.util.Comparator;
+
+public class ComparadorArticles implements Comparator<Article>{
+
+	@Override
+	public int compare(Article o1, Article o2) {
+		String descA=o1.getDescripcio();
+		String descB=o2.getDescripcio();
+		
+		return descA.compareTo(descB);
+	}
+
+	
+	
+	
+}

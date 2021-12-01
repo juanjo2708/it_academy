@@ -1,0 +1,69 @@
+package LinkedList;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.ListIterator;
+
+public class Inici {
+
+	public static void main(String[] args) {
+		LinkedList <String>  paisos = new LinkedList <String>();
+		paisos.add("Catalunya");
+		paisos.add("França");
+		paisos.add("Italia");
+		paisos.add("Alemanya");
+		paisos.add("Portugal");
+		paisos.add("Suissa");
+			
+		
+		LinkedList <String> capitals = new LinkedList <String>();
+		capitals.add("Barcelona");
+		capitals.add("");
+		capitals.add("París");		
+		capitals.add("Roma");
+		capitals.add("Berlin");
+		capitals.add("Lisboa");
+		capitals.add("Berna");
+		
+		System.out.println("Països   : \n \t"+paisos);
+		System.out.println("Capitals : \n \t"+capitals);
+		
+		ListIterator<String> litP = paisos.listIterator();
+		ListIterator<String> litC = capitals.listIterator();
+		
+		if(paisos.size()>capitals.size()) {
+			System.out.println("Hi han més països que capitals, Quedaran paisos sense capital.");
+		} else if(paisos.size()<capitals.size()) {
+			System.out.println("Hi han més capitals que països.");			
+		} else {
+			System.out.println("Els nombre de països i de capitals són iguals.");
+		}
+		
+		// fusiono la taula capitals a la taula paisos
+		while(itP.hasNext()) {
+			litP.next(); //Avanço l'iterador països
+			
+			// si hi ha una capital llavors l'afegeixo al pais
+			if(litC.hasNext()) {				
+				litP.add(litC.next()); //Avanço iterador capitals i l'inserto a països.
+			}	
+			
+		}
+		
+		//Mostrem linkedList de capitals
+		
+		System.out.println("Llistat Stream de la linkedList capitals fusionada : ");
+		paisos.stream()
+			.forEach(p-> System.out.println(p));
+		
+		System.out.println("Llistat for de la linkedList capitals fusionada : ");
+		for(String paisosAux : paisos) {
+			System.out.println("- "+paisosAux);
+		}
+		
+			
+		
+		
+	}
+
+}
