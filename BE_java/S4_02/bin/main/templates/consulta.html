@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tymeLeaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>LLISTAT DE LLIBRES</title>
+</head>
+<body>
+<h1>GESTIÓ D'EMPLEATS </h1>
+ 
+	<h4>Usuari :<span th:text="${nom}"></span>
+		, Password :<span th:text="${password}"></span></h4>
+	<h2>LLISTAT D'EMPLEATS</h2><br>
+	
+	
+	
+		<table border=1>
+			<thead>
+				<tr>
+					<th>Id <th>Nom <th>Categoria <th>Password <th>sou<th>Esborrar<th>Editar		
+				</tr>
+				
+			</thead>
+			<tbody>
+				<tr th:if="${empleats.empty}">
+					<td colspan="2">No books available</td>
+				</tr>
+				<tr th:each="empleats : ${empleats}">
+					<td><span th:text="${empleats.id}"></span></td>
+					<td><span th:text="${empleats.nom}"></span></td>
+					<td><span th:text="${empleats.categoria}"></span></td>
+					<td><span th:text="${empleats.password}"></span></td>
+					<td><span th:text="${empleats.sou}"></span></td>
+					<td><a th:href="@{/esborrar/}+${empleats.id}">Esborrar</a>	</td>
+					<td><a th:href="@{/modificar/}+${empleats.id}">Editar</a>	</td>
+					<td><span th:text="${empleats.imgPath}"></span></td>
+					<td><a th:href="@{/pujar}">pujar imatge</a>	</td>														
+				</tr>					
+			</tbody>
+		</table> 
+		<br>
+		<hr>
+	
+	
+	<form th:action="${action}"  method="post" enctype="multipart/form-data"> 
+		<BR>
+		ID : <input type=text name=id th:value="${empleat?.id}">
+		NOM : <input type=text name=nom th:value="${empleat?.nom}">
+		CATEGORIA : <input type=text name=categoria th:value="${empleat?.categoria}">
+		PASSWORD : <input type=text name=password  th:value="${empleat?.password}">
+		SOU : <input type=text name=sou th:value="${empleat?.sou}">
+		<br><br>
+		<input type="submit" name="submit" th:value="${boton}">			
+	</form>
+
+	
+	
+</body>
+</html>

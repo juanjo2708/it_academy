@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1><br><br>
+	<h3>Autenticació d'usuaris :</h3><br><br>
+	
+	<form action="/" method="post">	
+		Login    : <input type=text name=nom value="edu"><br><br>
+		Password : <input type="password" name=password value="edu"><br><br>
+		<input type=submit name=submit value="Login">	
+	</form>
+</body>
+</html>

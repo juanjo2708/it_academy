@@ -1,0 +1,34 @@
+package LinkedList;
+
+import java.util.LinkedList;
+
+public class Inici {
+
+	public static void main(String[] args) {
+		LinkedList <String>  paisos = new LinkedList <String>();
+		paisos.add("Catalunya");
+		paisos.add("França");
+		paisos.add("Italia");
+		paisos.add("Alemanya");
+		paisos.add("Portugal");
+		paisos.add("Suissa");
+			
+		
+		LinkedList <String> capitals = new LinkedList <String>();
+		capitals.add("Barcelona");
+		capitals.add("");
+		capitals.add("París");
+		capitals.add("Berlin");
+		capitals.add("Roma");
+		capitals.add("Lisboa");
+		capitals.add("Berna");
+		
+		System.out.println("Països   : \n"+paisos);
+		System.out.println("Capitals : \n"+capitals);
+		
+			
+		
+		
+	}
+
+}

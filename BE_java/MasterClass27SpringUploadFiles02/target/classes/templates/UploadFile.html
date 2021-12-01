@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Upload file</title>
+</head>
+<body>
+
+	<h1>Upload json files</h1>
+
+	<form th:action="@{/obtenerFichero}" method="post"
+		enctype="multipart/form-data">
+		<p>
+			Documento <input type="file" name="documento"
+				accept="application/json" />
+
+		</p>
+
+		<p>
+			¿De cuantas delegaciones consta el achivo?<br> <input
+				type="radio" id="UnaDelegacion" name="Delegaciones" value="1"
+				checked> <label for="UnaDelegacion">1 </label><br> <input
+				type="radio" id="VariasDelegaciones" name="Delegaciones" value="*">
+			<label for="VariasDelegaciones">Varias</label><br>
+		</p>
+		<p>
+
+			<input type="submit" value="upload" /> <input type="reset"
+				value="Reset" />
+		</p>
+	</form>
+</body>
+</html>

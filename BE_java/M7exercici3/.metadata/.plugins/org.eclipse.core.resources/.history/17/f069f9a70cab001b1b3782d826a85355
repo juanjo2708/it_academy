@@ -1,0 +1,44 @@
+package TreeSet;
+
+import java.util.TreeSet;
+
+public class Inici {
+
+	public static void main(String[] args) {
+		TreeSet <String> persones = new TreeSet <String>();
+		
+		persones.add("Lara");
+		persones.add("Rosa");
+		persones.add("Mariona");
+		persones.add("Josep");
+		persones.add("Pep");
+		persones.add("Teresa");
+		
+		System.out.println("- "+persones);
+		
+		
+		TreeSet <Article> articles = new TreeSet <Article>();
+		
+		Article art = new Article(12, "art num 1");
+		articles.add(art);
+		art = new Article(1, "art num 2");
+		articles.add(art);
+		art = new Article(7, "art num 3");
+		articles.add(art);
+		art = new Article(21, "art num 4");
+		articles.add(art);
+		art = new Article(18, "art num 5");
+		articles.add(art);
+		
+		for(Article arti : articles) {
+			System.out.println("- "+arti.getCodi()+" "+arti.getDescripcio());
+		}
+		
+		
+	}
+
+		
+	
+	
+	
+}

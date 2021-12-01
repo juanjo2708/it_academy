@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="16.0.1" class="java.beans.XMLDecoder">
+ <object class="com.cloudftic.t04.c03.serializacion.p02.xml.ejemplo01.Alumno">
+  <void property="creditosAprobados">
+   <int>20</int>
+  </void>
+  <void property="fechaNacimiento">
+   <object class="java.util.Date">
+    <long>1004742000000</long>
+   </object>
+  </void>
+  <void property="nif">
+   <string>00000000A</string>
+  </void>
+  <void property="nombre">
+   <string>Alumno 1</string>
+  </void>
+  <void property="notaAcceso">
+   <double>7.5</double>
+  </void>
+ </object>
+</java>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pujar fitxer</title>
+</head>
+<body>
+	<h1>Pujar fitxers json </h1>
+
+
+	<form th:action="@{/obtenirFitxer}" method="post"
+		enctype="multipart/form-data">
+		<p>
+			Documento
+			<input type="file" name="documento" /> 
+			<input type="submit" value="upload" /> 
+			<input type="reset" value="Reset" />
+		</p>
+	</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+package LinkedList;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class Inici {
+
+	public static void main(String[] args) {
+		LinkedList <String>  paisos = new LinkedList <String>();
+		paisos.add("Catalunya");
+		paisos.add("França");
+		paisos.add("Italia");
+		paisos.add("Alemanya");
+		paisos.add("Portugal");
+		paisos.add("Suissa");
+			
+		
+		LinkedList <String> capitals = new LinkedList <String>();
+		capitals.add("Barcelona");
+		capitals.add("");
+		capitals.add("París");		
+		capitals.add("Roma");
+		capitals.add("Berlin");
+		capitals.add("Lisboa");
+		capitals.add("Berna");
+		
+		System.out.println("Països   : \n \t"+paisos);
+		System.out.println("Capitals : \n \t"+capitals);
+		
+		Iterator<String> itP = paisos.iterator();
+		Iterator<String> itC = capitals.iterator();
+		
+		while(itP.hasNext()) {
+			itP.next(); //Avanço l'iterador països
+			itC.next(); //Avanço l'iterador capitals
+			
+			
+		}
+		
+		
+		
+		
+		
+			
+		
+		
+	}
+
+}

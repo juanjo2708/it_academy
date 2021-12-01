@@ -1,0 +1,20 @@
+package TreeSet;
+
+import java.util.TreeSet;
+
+public class Inici {
+
+	public static void main(String[] args) {
+		TreeSet <String> persones = new TreeSet <String>();
+		
+		persones.add("Lara");
+		persones.add("Rosa");
+		persones.add("Mariona");
+		persones.add("Josep");
+		persones.add("Pep");
+		persones.add("Teresa");
+		
+		System.out.println("- "+persones);
+	}
+
+}
