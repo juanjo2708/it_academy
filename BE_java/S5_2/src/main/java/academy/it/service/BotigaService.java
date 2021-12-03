@@ -51,6 +51,22 @@ public class BotigaService {
 	}
 	
 	/**
+	 * obtenirBotigaId
+	 * 
+	 * Retorna la botiga amb id indicat o missatge d'error si no existeix
+	 * 
+	 * @param 	int 	id
+	 * @return	Botiga		
+	 */
+	public Botiga obtenirBotigaId(int id) {
+		// Determino is existeix la botiga, Envio missatge d'error si no existeix.		
+				Botiga botigaId = this.botigaRepositori.findById(id)
+						.orElseThrow(() -> new ResourceNotFoundException("La botiga amb id "+id+" no s'ha trobat"));
+				return botigaId;
+	}
+	
+	
+	/**
 	 * afegirQuadre
 	 * 
 	 * Afegeix un quadre a l'entitat bancària idBotiga
