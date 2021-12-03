@@ -69,7 +69,7 @@ public class BotigaService {
 	/**
 	 * afegirQuadre
 	 * 
-	 * Afegeix un quadre a l'entitat bancària idBotiga
+	 * Afegeix un quadre a l'entitat  idBotiga
 	 * 
 	 * @param 	idBotiga	int
 	 * @param 	nom			String

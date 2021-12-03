@@ -37,12 +37,17 @@ public class BotigaController {
 		return botigaService.obtenirBotigues();
 	}
 	
+	/**
+	 * get /shops/{botiga_id}
+	 * 
+	 * Retorna la botiga
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}")
 	public Botiga getlBotigaId(@PathVariable ("id") int id) {
 		return botigaService.obtenirBotigaId(id);
-	}
-	
-	
+	}	
 	
 	/**
 	 * Post /shops/

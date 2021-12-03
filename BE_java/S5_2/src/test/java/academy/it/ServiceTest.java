@@ -3,10 +3,12 @@ package academy.it;
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -22,12 +24,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import academy.it.controller.BotigaController;
 import academy.it.entity.Botiga;
+import academy.it.entity.Quadre;
 import academy.it.service.BotigaService;
 
 //@TestMethodOrder(OrderAnnotation.class)
@@ -55,7 +59,11 @@ public class ServiceTest {
 			mockMvc = MockMvcBuilders.standaloneSetup(botigaController).build();
 		}
 		
-		
+		/**
+		 * get /shops
+		 * 
+		 * @throws Exception
+		 */
 		@Test
 		@Order (1)
 		@DisplayName ("Llista de totes les botigues  get /shops/")
@@ -85,7 +93,12 @@ public class ServiceTest {
 				.andExpect(jsonPath("$[2].nom", is("Botiga tres")))
 				.andDo(print());
 		}
-			
+		
+		/**
+		 * get /shops/{shop_id}
+		 * 
+		 * @throws Exception
+		 */
 		@Test
 		@Order (2)
 		@DisplayName ("Botiga indicada by Id_botiga   get /shops/id_botiga")
@@ -103,26 +116,63 @@ public class ServiceTest {
 				.andExpect(MockMvcResultMatchers.jsonPath(".capacitat").value(120))
 				.andDo(print());
 		}	
-//			 @Test
-//				@Order (2)
-//				@DisplayName ("Llista de totes les botigues a la petició de get /shops/ 2a versió ")
-//				public void getAllBotigues1() throws Exception {
-//					
-//					botigues.add(registre1);
-//					botigues.add(registre2);
-//					botigues.add(registre3);
-//					botigues.add(registre4);
-//					botigues.add(registre5);				
-//											
-//					//botigaService.obtenirBotigues(); 
-//					when(botigaService.obtenirBotigues()).thenReturn(botigues);
-//					 mockMvc.perform(MockMvcRequestBuilders
-//					            .get("/shops")
-//					            .contentType(MediaType.APPLICATION_JSON))
-//					            .andExpect(status().isOk())
-//					           // .andExpect(jsonPath("$", hasSize(5))))		            
-//					            .andExpect(jsonPath("$[2].nom", is("Botiga tres")));
-//					
-//			 }
+	
+		/**
+		 * post /shops/
+		 * 
+		 * @throws Exception
+		 */
+		@Test
+		@Order (3)
+		@DisplayName ("Crear una botiga nova      post /shops/")
+		public void postBotiga_id() throws Exception {
+			
+			ObjectMapper mapper = new ObjectMapper();
+			Botiga registre3 = new Botiga ("Botiga tres",120);
+			registre3.setId(2);
+			
+			//botigaService.crearBotiga(String nom, int capacitat); 
+			when(botigaService.crearBotiga(registre3.getNom(), registre3.getCapacitat())).thenReturn(registre3);
+			String jsonbody = mapper.writeValueAsString(registre3);
+			
+			this.mockMvc.perform (post ("/shops/")
+												.content(jsonbody)
+												.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())	
+				.andDo(print());
+		}		
+				
+		/**
+		 * post /shops/{id}/pictures
+		 * 
+		 * @throws Exception
+		 */
+		@Test
+		@Order (4)
+		@DisplayName ("Afegir un nou quadre a la botiga id      post/{id} /pictures")
+		public void postBotigaAddQuadre() throws Exception {
+			
+			ObjectMapper mapper = new ObjectMapper();
+			Botiga registre3 = new Botiga ("Botiga tres",120);
+			registre3.setId(2);
+			
+			Quadre nouQuadre = new Quadre ("Els ciclistes","Pitxot");
+			//nouQuadre.setDataEntrada(LocalDate.now());
+			nouQuadre.setId(1);
+			
+			registre3.afegirQuadre(nouQuadre);
+			
+			
+			//botigaService.afegirQuadre(int id_botiga, String nom, String autor); 
+			when(botigaService.afegirQuadre(registre3.getId(), nouQuadre.getNom(), nouQuadre.getAutor())).thenReturn(nouQuadre);
+			String jsonbody = mapper.writeValueAsString(nouQuadre);
+			
+			this.mockMvc.perform (post ("/shops/{id}", registre3.getId())
+												.content(jsonbody)
+												.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())	
+				.andDo(print());
+		}
+		
 		
 }

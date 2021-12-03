@@ -38,7 +38,7 @@ public class Quadre {
 	public Quadre (String nom, String autor) {
 		this.nom = nom;
 		this.autor = autor;
-		this.dataEntrada = LocalDate.now();
+		//this.dataEntrada = LocalDate.now();
 	}
 	
 	// --- GETTERS, SETTERS,  toString --------------------
