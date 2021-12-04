@@ -5,7 +5,6 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import academy.it.service.BotigaService;
 import academy.it.entity.Botiga;
 import academy.it.entity.Quadre;
-import academy.it.exceptions.ResourceNotFoundException;
 
 @RestController
 @RequestMapping("/shops")
@@ -71,7 +69,7 @@ public class BotigaController {
 	 *  @param 	Quadre	quadre	(@RequestBody)	 *  
 	 */
 	@PostMapping("/{ID}/pictures")
-	public Quadre afegirQuadre(@PathVariable ("ID") int id, @RequestBody Quadre quadre) {
+	public ResponseEntity<Botiga> afegirQuadre(@PathVariable ("ID") int id, @RequestBody Quadre quadre) {
 		return botigaService.afegirQuadre(id, quadre.getNom(),quadre.getAutor());
 	}
 	

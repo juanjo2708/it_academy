@@ -76,7 +76,7 @@ public class BotigaService {
 	 * @param 	autor		String
 	 * @return	Quadre		
 	 */
-	public Quadre afegirQuadre(int idBotiga, String nom, String autor) {
+	public ResponseEntity<Botiga> afegirQuadre(int idBotiga, String nom, String autor) {
 								
 		// Determino is existeix la botiga, Envio missatge d'error si no existeix.		
 		Botiga botigaId = this.botigaRepositori.findById(idBotiga)
@@ -92,7 +92,7 @@ public class BotigaService {
 		//this.botigaRepositori.findById(idBotiga).get().afegirQuadre(nouQuadre);
 		//this.botigaRepositori.save(this.botigaRepositori.findById(idBotiga).get());
 		
-		return nouQuadre;				
+		return ResponseEntity.ok().body(botigaId);
 	}
 	
 	/**

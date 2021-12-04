@@ -39,7 +39,7 @@ public class Botiga {
 		this.capacitat = capacitat;
 	}
 
-	// --- afegir, esborrar quadres -----------------------------------
+	// --- AFEGIR, ESBORRAR QUADRES -----------------------------------
 	public void afegirQuadre(Quadre quadre) {
 		quadres.add(quadre);
 	}

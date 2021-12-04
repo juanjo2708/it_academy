@@ -1,0 +1,33 @@
+ 
+
+MockMvc
+Un altre enfocament útil és no iniciar el servidor en absolut, sinó provar només la capa inferior, on Spring gestiona la sol·licitud HTTP entrant i la lliura al vostre controlador.
+
+ D'aquesta manera, s'utilitza gairebé la pila completa i el vostre codi es cridarà exactament de la mateixa manera que si estigués processant una sol·licitud HTTP real però sense el cost d'iniciar el servidor. 
+
+Per fer-ho, utilitzeu el MockMvc de Spring i demaneu que se us injecti mitjançant l'anotació @AutoConfigureMockMvc.
+
+
+WebMvcTest
+Podem restringir les proves només a la capa web utilitzant @WebMvcTest, tal com mostra la llista següent (de src/test/java/com/example/testingweb/WebLayerTest.java).
+
+WebMvcTest. Aixeca la capa web, incloent controladors, filtres i Spring Security. Queda fora, per tant, tota la capa de persistència amb Spring Data JPA i els serveis.
+L'afirmació de la prova és la mateixa que en el cas anterior. Tanmateix, en aquesta prova, Spring Boot crea una instancia només de la capa web en lloc de tot el context. 
+
+En una aplicació amb diversos controladors, fins i tot podeu demanar que només se n'instanciï un mitjançant, per exemple, @WebMvcTest(HomeController.class).
+ 
+ 
+ 
+ 
+------------------------------------------------------------------------------------------------------------------------------ 
+ @Test
+    public void testGetSpain() throws Exception {
+        Mockito.when(countryService.findById(SPAIN_ID)).thenReturn(Optional.of(new Country("Spain", 0)));
+        String response = mockMvc.perform(get(CountryRestController.COUNTRY_RESOURCE + "/{id}/", SPAIN_ID))
+                .andExpect(status().is(HttpStatus.OK.value()))
+                .andExpect(jsonPath("$.name", is("Spain"))).andReturn().getResponse()
+                .getContentAsString();
+ 
+        logger.info("response: " + response);
+    }
+---------------------------------------------------------------------------------------------------------------------------------    
