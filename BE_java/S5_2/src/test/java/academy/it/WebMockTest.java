@@ -9,26 +9,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
-import org.h2.command.dml.Set;
-import org.hibernate.annotations.common.util.impl.LoggerFactory;
+
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import academy.it.controller.BotigaController;
 import academy.it.entity.Botiga;
@@ -143,46 +136,64 @@ public class WebMockTest {
 	@Test
 	@DisplayName ("Afegir un nou quadre a la botiga id      post/{id} /pictures" )
 	public void postBotigaAddQuadre() throws Exception {
-		
-		ObjectMapper mapper = new ObjectMapper();
-		
+	
 		// Creem botiga
 		Botiga registre3 = new Botiga ("Botiga tres",120);
 		registre3.setId(2);
 		
 		// Creem Quadre
-		//Quadre nouQuadre = new Quadre ("Els ciclistes","Pitxot");
-		//nouQuadre.setId(0);
+		Quadre nouQuadre = new Quadre ("Els ciclistes","Pitxot");
+		nouQuadre.setId(0);
 		
+		//Afegim el quadre a la botigq
+		registre3.afegirQuadre(nouQuadre);
 					
 		// botigaService.afegirQuadre(int id_botiga, String nom, String autor); 
-		//when(botigaService.afegirQuadre(registre3.getId(), nouQuadre.getNom(), nouQuadre.getAutor())).thenReturn(nouQuadre);
-		//String jsonbody = mapper.writeValueAsString(nouQuadre);
-		Mockito.when(botigaService.afegirQuadre(2,"Els ciclistes", "Pitxot")).thenReturn(ResponseEntity.ok().body(registre3));
+		Mockito.when(botigaService.afegirQuadre(2,"Els ciclistes", "Pitxot")).thenReturn(registre3);
 		// Comprovem el resultat
-		this.mockMvc.perform (post ("/shops/{id}/pictures", registre3.getId()))
+		this.mockMvc.perform (post ("/shops/{id}/pictures", 2 ))
 				.andExpect(status().isOk())	
 				.andExpect(jsonPath("$[0].id", is(2)))
 				.andExpect(jsonPath("$[0].nom", is("Botiga tres")))
-				.andExpect(jsonPath("$[0].quadres").isNotEmpty())				
+				.andExpect(jsonPath("$[0].quadres.size").isNotEmpty())				
 				.andDo(print());
 	}
 	
 	
+	@Test
+	@DisplayName ("Llistar els  quadres a la botiga id      get(\"/{ID}/pictures\") " )
+	public void botigaLlistarQuadres() throws Exception {
 	
-	/*
-	 @Test
-	    public void testGetSpain() throws Exception {
-	        Mockito.when(countryService.findById(SPAIN_ID)).thenReturn(Optional.of(new Country("Spain", 0)));
-	        String response = mockMvc.perform(get(CountryRestController.COUNTRY_RESOURCE + "/{id}/", SPAIN_ID))
-	                .andExpect(status().is(HttpStatus.OK.value()))
-	                .andExpect(jsonPath("$.name", is("Spain"))).andReturn().getResponse()
-	                .getContentAsString();
-	 
-	        logger.info("response: " + response);
-	    }
-	--------------------------------------------------------------------------------------------------------------------------------
-	
-*/	
-
+		// Creem botiga
+		Botiga registre3 = new Botiga ("Botiga tres",120);
+		registre3.setId(2);
+		
+		// Creem Quadres i els afegim a la botiga
+		Quadre nouQuadre = new Quadre ("Els ciclistes","Pitxot");
+		nouQuadre.setId(0);
+		registre3.afegirQuadre(nouQuadre);
+		
+		nouQuadre = new Quadre("Collage on road", "Potty Marhs");
+		nouQuadre.setId(1);
+		registre3.afegirQuadre(nouQuadre);
+		System.out.println("------------------->"+registre3.toString());
+		
+				
+		// botigaService.llistarQuadresBotiga(int id_botiga); 
+		Mockito.when(botigaService.llistarQuadresBotiga(2)).thenReturn(registre3);
+		// Comprovem el resultat
+		this.mockMvc.perform (post ("/shops/{id}/pictures", registre3.getId() ))
+				.andExpect(status().isOk())				
+				//.andExpect(jsonPath("$[0].size").isNotEmpty())				
+				//.andExpect(jsonPath("$.quadres"), hasSize(1))
+				.andDo(print());
+	}		
 }
+
+
+
+
+
+
+
+

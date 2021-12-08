@@ -1,7 +1,6 @@
 package academy.it.controller;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -69,7 +68,7 @@ public class BotigaController {
 	 *  @param 	Quadre	quadre	(@RequestBody)	 *  
 	 */
 	@PostMapping("/{ID}/pictures")
-	public ResponseEntity<Botiga> afegirQuadre(@PathVariable ("ID") int id, @RequestBody Quadre quadre) {
+	public Botiga afegirQuadre(@PathVariable ("ID") int id, @RequestBody Quadre quadre) {
 		return botigaService.afegirQuadre(id, quadre.getNom(),quadre.getAutor());
 	}
 	
@@ -79,10 +78,10 @@ public class BotigaController {
 	 * Llistat dels quadres de una botiga (id)
 	 * 
 	 * @param 	int 	id
-	 * @return	Set<Quadre>
+	 * @return	ArrayList<Quadre>
 	 */
 	@GetMapping("/{ID}/pictures")
-	public Set<Quadre> llitatQuadres(@PathVariable ("ID") int id){
+	public Botiga llistatQuadres(@PathVariable ("ID") int id){
 		return botigaService.llistarQuadresBotiga(id);
 	}
 	

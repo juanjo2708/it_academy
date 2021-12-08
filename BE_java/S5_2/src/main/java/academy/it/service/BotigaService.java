@@ -1,7 +1,7 @@
 package academy.it.service;
 
 import java.util.List;
-import java.util.Set;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -76,7 +76,7 @@ public class BotigaService {
 	 * @param 	autor		String
 	 * @return	Quadre		
 	 */
-	public ResponseEntity<Botiga> afegirQuadre(int idBotiga, String nom, String autor) {
+	public Botiga afegirQuadre(int idBotiga, String nom, String autor) {
 								
 		// Determino is existeix la botiga, Envio missatge d'error si no existeix.		
 		Botiga botigaId = this.botigaRepositori.findById(idBotiga)
@@ -88,11 +88,8 @@ public class BotigaService {
 		// Afegim el quadre i actualitzem la botiga amb el quadre afegit
 		botigaId.afegirQuadre(nouQuadre);
 		this.botigaRepositori.save(botigaId);
-			
-		//this.botigaRepositori.findById(idBotiga).get().afegirQuadre(nouQuadre);
-		//this.botigaRepositori.save(this.botigaRepositori.findById(idBotiga).get());
 		
-		return ResponseEntity.ok().body(botigaId);
+		return botigaId;
 	}
 	
 	/**
@@ -103,17 +100,26 @@ public class BotigaService {
 	 * @param 	int 		idBotiga
 	 * @return	Set<Quadre>	
 	 */
-	public Set<Quadre> llistarQuadresBotiga(int idBotiga){
+	public Botiga llistarQuadresBotiga(int idBotiga){
 		
 		// Determino is existeix la botiga, Envio missatge d'error si no existeix.
 		Botiga botigaId =this.botigaRepositori.findById(idBotiga)
 				.orElseThrow(() -> new ResourceNotFoundException("La botiga amb id "+idBotiga+" no s'ha trobat"));
 		
-		//Retorno el Set de quadres de la botiga idBotiga
-		return botigaId.getQuadres();
-		
-		//return this.botigaRepositori.findById(idBotiga).get().getQuadres();
+		//Retorno la botiga amb l' arrayList  de quadres actualitzat
+		return botigaId;
 	}
+	
+//	public Set<Quadre> llistarQuadresBotiga1(int idBotiga){
+//		
+//		// Determino is existeix la botiga, Envio missatge d'error si no existeix.
+//		Botiga botigaId =this.botigaRepositori.findById(idBotiga)
+//				.orElseThrow(() -> new ResourceNotFoundException("La botiga amb id "+idBotiga+" no s'ha trobat"));
+//		
+//		//Retorno la botiga amb l' arrayList  de quadres actualitzat
+//		return botigaId.getQuadres();
+//	}
+	
 	
 	/**
 	 * cremarQuadres

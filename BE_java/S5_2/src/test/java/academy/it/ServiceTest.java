@@ -5,13 +5,12 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.time.LocalDate;
+
 import java.util.ArrayList;
-import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -19,7 +18,6 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -157,7 +155,7 @@ public class ServiceTest {
 		@DisplayName ("Afegir un nou quadre a la botiga id      post/{id} /pictures" )
 		public void postBotigaAddQuadre() throws Exception {
 			
-			ObjectMapper mapper = new ObjectMapper();
+			//ObjectMapper mapper = new ObjectMapper();
 			
 			// Creem botiga
 			Botiga registre3 = new Botiga ("Botiga tres",120);
@@ -174,7 +172,7 @@ public class ServiceTest {
 			// botigaService.afegirQuadre(int id_botiga, String nom, String autor); 
 			//when(botigaService.afegirQuadre(registre3.getId(), nouQuadre.getNom(), nouQuadre.getAutor())).thenReturn(nouQuadre);
 			//String jsonbody = mapper.writeValueAsString(nouQuadre);
-			Mockito.when(botigaService.afegirQuadre(2,"Els cicliste", "Pitxot")).thenReturn(nouQuadre);
+			//Mockito.when(botigaService.afegirQuadre(2,"Els cicliste", "Pitxot")).thenReturn(nouQuadre);
 			// Comprovem el resultat
 			this.mockMvc.perform (post ("/shops/{id}/pictures", registre3.getId()))
 					.andExpect(status().isOk())	

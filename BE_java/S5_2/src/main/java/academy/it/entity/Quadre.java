@@ -3,10 +3,14 @@ package academy.it.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.lang.NonNull;
@@ -25,7 +29,11 @@ public class Quadre {
 	private String autor;
 	private Float preu;
 	private LocalDate dataEntrada;
-		
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	 @JoinColumn(name = "botiga_id", referencedColumnName = "id")
+	 private Botiga botiga;
+	
 	// --- CONSTRUCTORS -------------------------------------
 	public Quadre() {}
 	
@@ -38,7 +46,7 @@ public class Quadre {
 	public Quadre (String nom, String autor) {
 		this.nom = nom;
 		this.autor = autor;
-		//this.dataEntrada = LocalDate.now();
+		this.dataEntrada = LocalDate.now();
 	}
 	
 	// --- GETTERS, SETTERS,  toString --------------------
