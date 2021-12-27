@@ -1,23 +1,34 @@
 package it.academy.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table (name ="jugades")
-public class Jugada {
-	
-// --- PROPIETATS ----------------------------------------------------------------	
+public class Jugada implements Serializable, Comparable<Jugada>{
+		
+	private static final long serialVersionUID = 1L;
+		
+	// --- PROPIETATS ----------------------------------------------------------------	
+	@Id
+	@GeneratedValue(strategy =GenerationType.AUTO)
+	private Long id;
 	private int valorDau1;
 	private int valorDau2;
 	private Boolean guanyada;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER )
-	@JoinColumn(name ="jugador_id", referencedColumnName = "jugador_id")
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name ="jugador_id", referencedColumnName ="id")	
 	private Jugador jugador;
 	
 // --- CONSTRUCTORS ----------------------------------------------------------------	
@@ -40,8 +51,18 @@ public class Jugada {
 	}
 	
 // --- GETTERS, SETTERS, TOSTRING
+	
+	
 	public int getValorDau1() {
 		return valorDau1;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setValorDau1(int valorDau1) {
@@ -76,5 +97,10 @@ public class Jugada {
 	public String toString() {
 		return "Jugada [valorDau1=" + valorDau1 + ", valorDau2=" + valorDau2 + ", guanyada=" + guanyada + ", jugador="
 				+ jugador + "]";
+	}
+
+	@Override
+	public int compareTo(Jugada o) {
+		return 0;
 	}
 }

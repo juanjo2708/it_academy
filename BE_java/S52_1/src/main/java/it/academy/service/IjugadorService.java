@@ -20,5 +20,11 @@ public interface IjugadorService {
 	
 	// llistat de tots els jugadors 
 	public ArrayList <Jugador> findAll();
+	
+	// Editar el nom de un jugador id
+	public Jugador editNameJugador(Long id, String nouNom);
+	
+	// Jugador realitza una tirada
+	public Jugador ferUnaTirada(Long id);
 
 }

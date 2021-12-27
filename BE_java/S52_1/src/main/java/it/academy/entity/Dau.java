@@ -5,15 +5,17 @@ public class Dau {
 // --- PROPIETATS ------------------------	
 	private int valor;
 
-// --- CONSTRUCTOR ---------------------	
-	public Dau(int valor) {
-		super();
+// --- CONSTRUCTORS ---------------------	
+	
+	public Dau () {}
+	
+	public Dau(int valor) {	
 		this.valor = valor;
 	}
 
 // --- JUGADA ALEATÒRIA -----------------
-	public int tirada () {
-		return (int)(Math.random()*7+1);
+	public void tirada () {
+		this.valor= (int)(Math.random()*7+1);
 	}
 	
 // --- GETTERS, SETTERS, TOSTRING	

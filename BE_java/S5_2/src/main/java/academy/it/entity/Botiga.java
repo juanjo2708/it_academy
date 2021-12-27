@@ -1,5 +1,7 @@
 package academy.it.entity;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -31,14 +33,14 @@ public class Botiga {
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="botiga_id")
-	private Set<Quadre> quadres;
+	private Set<Quadre> quadres = new HashSet<>();
 	
 	// --- CONSTRUCTORS --------------------------------
 	public Botiga() {}
 	
 	public Botiga (String nom, int capacitat) {
 		this.nom = nom;
-		this.capacitat = capacitat;
+		this.capacitat = capacitat;		
 	}
 
 	// --- AFEGIR, ESBORRAR QUADRES -----------------------------------

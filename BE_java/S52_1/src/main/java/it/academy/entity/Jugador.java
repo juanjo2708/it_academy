@@ -1,7 +1,9 @@
 package it.academy.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,30 +11,43 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "jugadors")
-public class Jugador {
-	
-// --- PROPIETATS ----------------------------------------------
+public class Jugador implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	// --- PROPIETATS ----------------------------------------------
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO )
 	private Long id;
 	private String nom;
 	private LocalDate dataRegistre;
-    
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "jugador_id", cascade = CascadeType.ALL)
-	private ArrayList <Jugada> jugades;
-
+	
+		
+	//@OneToMany(mappedBy = "jugador",fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "jugador")	
+	private List <Jugada>jugades;// = new ArrayList<Jugada>() ;
+	 
 // --- CONSTRUCTORS -----------------------------------------------------	
+	public Jugador() {}
+	
 	public Jugador(String nom) {
 		this.nom = nom;
 		this.dataRegistre = LocalDate.now();
-		this.jugades = new ArrayList<Jugada>(); 
+		this.jugades = new ArrayList<Jugada>() ;
 	}
-		
+	
+	//--- AFEGIR NOVA JUGADA ---------------------------------------
+	public void afegirJugada(Jugada novaJugada) {
+		this.jugades.add(novaJugada);
+	}
+	
+	
 	// --- GETTERS, SETTERS, TOSTRING ------------------------------
 	public Long getId() {
 		return id;
@@ -52,8 +67,18 @@ public class Jugador {
 	public void setDataRegistre(LocalDate dataRegistre) {
 		this.dataRegistre = dataRegistre;
 	}
+	
+	public List<Jugada> getJugades() {
+		return jugades;
+	}
+
+	public void setJugades(List<Jugada> jugades) {
+		this.jugades = jugades;
+	}
+
 	@Override
 	public String toString() {
-		return "Jugador [id=" + id + ", nom=" + nom + ", dataRegistre=" + dataRegistre + "]";
-	}
+		return "Jugador [id=" + id + ", nom=" + nom + ", dataRegistre=" + dataRegistre + ", jugades=" + jugades + "]";
+	}	
+	
 }

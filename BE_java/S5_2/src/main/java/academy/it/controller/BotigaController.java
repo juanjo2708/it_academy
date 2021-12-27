@@ -72,6 +72,8 @@ public class BotigaController {
 		return botigaService.afegirQuadre(id, quadre.getNom(),quadre.getAutor());
 	}
 	
+	
+	
 	/**
 	 * llistatQuadres
 	 * 
@@ -85,6 +87,12 @@ public class BotigaController {
 		return botigaService.llistarQuadresBotiga(id);
 	}
 	
+	/**
+	 * Cremar quadres de una botiga
+	 * Esborra tots els quadres de la botiga id passada com a paràmetre.
+	 * @param id
+	 * @return	ResponseEntity<Botiga>
+	 */
 	@DeleteMapping("/{ID}/pictures")
 	public ResponseEntity<Botiga> cremarQuadres (@PathVariable ("ID") int id){
 		return botigaService.cremarQuadres(id);

@@ -10,23 +10,29 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.ArrayList;
 
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import academy.it.controller.BotigaController;
 import academy.it.entity.Botiga;
 import academy.it.entity.Quadre;
+import academy.it.exceptions.ResourceNotFoundException;
+import academy.it.repository.IbotigaRepository;
 import academy.it.service.BotigaService;
+import ch.qos.logback.core.net.ObjectWriter;
 
 
 // Spring injecta automàticament la dependència del servei al controlador
@@ -36,12 +42,12 @@ public class WebMockTest {
 	@Autowired
 	private MockMvc mockMvc;
 	
+		
 	// Utilitzem @MockBean per crear i injectar una simulació per a BotigaService 
 	//(si no ho fem, el context de l'aplicació no pot iniciar-se) 
 	@MockBean
 	private BotigaService botigaService;
-	
-	
+		
 	/**
 	 *  get /shops/{id}
 	 *  Retorna la  botiga id passada per paràmetre. 
@@ -128,6 +134,41 @@ public class WebMockTest {
 	}	
 	
 	
+//	/**
+//	 * post /shops/{id}/pictures
+//	 * 
+//	 * @throws Exception
+//	 */
+//	@Test
+//	@DisplayName ("Afegir un nou quadre a la botiga id      post/{id} /pictures" )
+//	public void postBotigaAddQuadre() throws Exception {
+//		
+//		ObjectMapper mapper = new ObjectMapper();
+//		
+//		// Creem botiga
+//		Botiga registre3 = new Botiga ("Botiga tres",120);
+//		registre3.setId(2);
+//		
+//		// Creem Quadre
+//		Quadre nouQuadre = new Quadre ("Els ciclistes","Pitxot");
+//		nouQuadre.setId(0);
+//		
+//		//Afegim el quadre a la botigq
+//		registre3.afegirQuadre(nouQuadre);
+//		String jsonBody = mapper.writeValueAsString(registre3);
+//					
+//		// botigaService.afegirQuadre(int id_botiga, String nom, String autor); 
+//		Mockito.when(botigaService.afegirQuadre(2,"Els ciclistes", "Pitxot")).thenReturn(registre3);
+//		// Comprovem el resultat
+//		this.mockMvc.perform (post ("/shops/{id}/pictures", 2 ))
+//				.andExpect(status().isOk())	
+//				.andExpect(jsonPath("$[0].id", is(2)))
+//				.andExpect(jsonPath("$[0].nom", is("Botiga tres")))
+//				.andExpect(jsonPath("$[0].quadres.size").isNotEmpty())				
+//				.andDo(print());
+//	}
+//	
+	
 	/**
 	 * post /shops/{id}/pictures
 	 * 
@@ -136,7 +177,8 @@ public class WebMockTest {
 	@Test
 	@DisplayName ("Afegir un nou quadre a la botiga id      post/{id} /pictures" )
 	public void postBotigaAddQuadre() throws Exception {
-	
+		
+		
 		// Creem botiga
 		Botiga registre3 = new Botiga ("Botiga tres",120);
 		registre3.setId(2);
@@ -147,21 +189,43 @@ public class WebMockTest {
 		
 		//Afegim el quadre a la botigq
 		registre3.afegirQuadre(nouQuadre);
-					
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String stringMapper = mapper.writeValueAsString(nouQuadre);
+						
 		// botigaService.afegirQuadre(int id_botiga, String nom, String autor); 
-		Mockito.when(botigaService.afegirQuadre(2,"Els ciclistes", "Pitxot")).thenReturn(registre3);
-		// Comprovem el resultat
-		this.mockMvc.perform (post ("/shops/{id}/pictures", 2 ))
-				.andExpect(status().isOk())	
-				.andExpect(jsonPath("$[0].id", is(2)))
-				.andExpect(jsonPath("$[0].nom", is("Botiga tres")))
-				.andExpect(jsonPath("$[0].quadres.size").isNotEmpty())				
-				.andDo(print());
+		when(botigaService.afegirQuadre(2,"Els ciclistes", "Pitxot")).thenReturn(registre3);
+		
+		
+//		this.mockMvc.perform( post("/shops/{id}/pictures", 2)
+//				.contentType("application/json"))			
+//				.andExpect(status().isOk())				
+//				.andExpect(jsonPath("$.nom", is (registre3.getNom())));
+		
+		this.mockMvc.perform( MockMvcRequestBuilders
+			      .post("/shops/{id}/pictures", 2)
+			      .content(stringMapper)
+			      .contentType(MediaType.APPLICATION_JSON)
+				  .accept(MediaType.APPLICATION_JSON))
+			      .andDo(print())
+			      .andExpect(status().isOk())
+			      .andExpect(MockMvcResultMatchers.jsonPath("$.getId").value(2))
+			      .andExpect(MockMvcResultMatchers.jsonPath("$.quadres[*]").isNotEmpty());
+			      
+			     // .andExpect(MockMvcResultMatchers.jsonPath("$.employees").exists())
+			     // .andExpect(MockMvcResultMatchers.jsonPath("$.employees[*].employeeId").isNotEmpty());
+		
+				
 	}
+		
+	
+	
+	
+	
 	
 	
 	@Test
-	@DisplayName ("Llistar els  quadres a la botiga id      get(\"/{ID}/pictures\") " )
+	@DisplayName ("Llistar els  quadres de la botiga id      get(\"/{ID}/pictures\") " )
 	public void botigaLlistarQuadres() throws Exception {
 	
 		// Creem botiga
@@ -183,7 +247,7 @@ public class WebMockTest {
 		Mockito.when(botigaService.llistarQuadresBotiga(2)).thenReturn(registre3);
 		// Comprovem el resultat
 		this.mockMvc.perform (post ("/shops/{id}/pictures", registre3.getId() ))
-				.andExpect(status().isOk())				
+				//.andExpect(status().isOk())				
 				//.andExpect(jsonPath("$[0].size").isNotEmpty())				
 				//.andExpect(jsonPath("$.quadres"), hasSize(1))
 				.andDo(print());
