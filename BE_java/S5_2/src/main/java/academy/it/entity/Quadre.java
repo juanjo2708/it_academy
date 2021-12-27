@@ -1,7 +1,8 @@
 package academy.it.entity;
 
 
-import java.time.LocalDate;
+
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -28,7 +29,7 @@ public class Quadre {
 	@NonNull
 	private String autor;
 	private Float preu;
-	private LocalDate dataEntrada;
+	private Date dataEntrada;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	 @JoinColumn(name = "botiga_id", referencedColumnName = "id")
@@ -40,13 +41,13 @@ public class Quadre {
 	public Quadre(String nom, Float preu) {
 		this.nom = nom;
 		this.preu = preu;
-		this.dataEntrada = LocalDate.now();
+		this.dataEntrada =new Date();
 	}
 	
 	public Quadre (String nom, String autor) {
 		this.nom = nom;
 		this.autor = autor;
-		this.dataEntrada = LocalDate.now();
+		this.dataEntrada = new Date();
 	}
 	
 	// --- GETTERS, SETTERS,  toString --------------------
@@ -83,11 +84,11 @@ public class Quadre {
 		this.preu = preu;
 	}
 
-	public LocalDate getDataEntrada() {
+	public Date getDataEntrada() {
 		return dataEntrada;
 	}
 
-	public void setDataEntrada(LocalDate dataEntrada) {
+	public void setDataEntrada(Date dataEntrada) {
 		this.dataEntrada = dataEntrada;
 	}
 	

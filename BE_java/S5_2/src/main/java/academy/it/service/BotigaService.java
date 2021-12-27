@@ -116,7 +116,7 @@ public class BotigaService {
 //		Botiga botigaId =this.botigaRepositori.findById(idBotiga)
 //				.orElseThrow(() -> new ResourceNotFoundException("La botiga amb id "+idBotiga+" no s'ha trobat"));
 //		
-//		//Retorno la botiga amb l' arrayList  de quadres actualitzat
+//		//Retorno un  arrayList  de quadres actualitzat
 //		return botigaId.getQuadres();
 //	}
 	

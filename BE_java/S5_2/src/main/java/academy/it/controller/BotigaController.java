@@ -61,6 +61,7 @@ public class BotigaController {
 	
 	/* afegirQuadre
 	 * 
+	 * Afegir un quadre a la botiga id
 	 * Post /shops/{ID}/pictures
 	 * 
 	 *  Afegeix un quadre a la botiga id passada com a PathVariable
@@ -71,9 +72,7 @@ public class BotigaController {
 	public Botiga afegirQuadre(@PathVariable ("ID") int id, @RequestBody Quadre quadre) {
 		return botigaService.afegirQuadre(id, quadre.getNom(),quadre.getAutor());
 	}
-	
-	
-	
+		
 	/**
 	 * llistatQuadres
 	 * 

@@ -37,7 +37,7 @@ import ch.qos.logback.core.net.ObjectWriter;
 
 // Spring injecta automàticament la dependència del servei al controlador
 @WebMvcTest(BotigaController.class)
-public class WebMockTest {
+public class BotigaControllerTest {
 		
 	@Autowired
 	private MockMvc mockMvc;
@@ -190,42 +190,34 @@ public class WebMockTest {
 		//Afegim el quadre a la botigq
 		registre3.afegirQuadre(nouQuadre);
 		
+		// mapejem l'objecte Quadre a String
 		ObjectMapper mapper = new ObjectMapper();
 		String stringMapper = mapper.writeValueAsString(nouQuadre);
 						
 		// botigaService.afegirQuadre(int id_botiga, String nom, String autor); 
-		when(botigaService.afegirQuadre(2,"Els ciclistes", "Pitxot")).thenReturn(registre3);
+		when(botigaService.afegirQuadre(2,"Els ciclistes", "Pitxot")).thenReturn(registre3);		
 		
-		
-//		this.mockMvc.perform( post("/shops/{id}/pictures", 2)
-//				.contentType("application/json"))			
-//				.andExpect(status().isOk())				
-//				.andExpect(jsonPath("$.nom", is (registre3.getNom())));
-		
-		this.mockMvc.perform( MockMvcRequestBuilders
-			      .post("/shops/{id}/pictures", 2)
-			      .content(stringMapper)
-			      .contentType(MediaType.APPLICATION_JSON)
-				  .accept(MediaType.APPLICATION_JSON))
-			      .andDo(print())
-			      .andExpect(status().isOk())
-			      .andExpect(MockMvcResultMatchers.jsonPath("$.getId").value(2))
-			      .andExpect(MockMvcResultMatchers.jsonPath("$.quadres[*]").isNotEmpty());
-			      
-			     // .andExpect(MockMvcResultMatchers.jsonPath("$.employees").exists())
-			     // .andExpect(MockMvcResultMatchers.jsonPath("$.employees[*].employeeId").isNotEmpty());
-		
-				
+		this.mockMvc.perform( post("/shops/{id}/pictures", 2)
+				.content(stringMapper)				
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
+	      		.andDo(print())
+	      		.andExpect(status().isOk())
+	      		.andExpect(MockMvcResultMatchers.jsonPath("$.id").value(2))
+	      		.andExpect(MockMvcResultMatchers.jsonPath("$.quadres.length()", is(1)))
+	      		.andExpect(MockMvcResultMatchers.jsonPath("$.quadres[*]").isNotEmpty());		
 	}
-		
 	
 	
-	
-	
-	
-	
+	/**
+	 * botigaLlistarQuadres
+	 * 
+	 * Retorna un llistat amb els quadres de la botiga id
+	 * 
+	 * @throws Exception
+	 */
 	@Test
-	@DisplayName ("Llistar els  quadres de la botiga id      get(\"/{ID}/pictures\") " )
+	@DisplayName ("Llistar els  quadres de la botiga id  -->    get /{ID}/pictures " )
 	public void botigaLlistarQuadres() throws Exception {
 	
 		// Creem botiga
@@ -240,17 +232,17 @@ public class WebMockTest {
 		nouQuadre = new Quadre("Collage on road", "Potty Marhs");
 		nouQuadre.setId(1);
 		registre3.afegirQuadre(nouQuadre);
-		System.out.println("------------------->"+registre3.toString());
-		
 				
 		// botigaService.llistarQuadresBotiga(int id_botiga); 
 		Mockito.when(botigaService.llistarQuadresBotiga(2)).thenReturn(registre3);
+		
 		// Comprovem el resultat
-		this.mockMvc.perform (post ("/shops/{id}/pictures", registre3.getId() ))
-				//.andExpect(status().isOk())				
-				//.andExpect(jsonPath("$[0].size").isNotEmpty())				
-				//.andExpect(jsonPath("$.quadres"), hasSize(1))
-				.andDo(print());
+		this.mockMvc.perform (get ("/shops/{ID}/pictures", 2 )
+				.accept(MediaType.APPLICATION_JSON))
+				.andDo(print())
+				.andExpect(status().isOk())
+				.andExpect(MockMvcResultMatchers.jsonPath("$.id").value(2))				
+				.andExpect(MockMvcResultMatchers.jsonPath("$.quadres.length()", is(2)));
 	}		
 }
 
