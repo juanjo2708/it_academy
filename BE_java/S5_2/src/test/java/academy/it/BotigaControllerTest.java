@@ -133,42 +133,6 @@ public class BotigaControllerTest {
 			.andDo(print());
 	}	
 	
-	
-//	/**
-//	 * post /shops/{id}/pictures
-//	 * 
-//	 * @throws Exception
-//	 */
-//	@Test
-//	@DisplayName ("Afegir un nou quadre a la botiga id      post/{id} /pictures" )
-//	public void postBotigaAddQuadre() throws Exception {
-//		
-//		ObjectMapper mapper = new ObjectMapper();
-//		
-//		// Creem botiga
-//		Botiga registre3 = new Botiga ("Botiga tres",120);
-//		registre3.setId(2);
-//		
-//		// Creem Quadre
-//		Quadre nouQuadre = new Quadre ("Els ciclistes","Pitxot");
-//		nouQuadre.setId(0);
-//		
-//		//Afegim el quadre a la botigq
-//		registre3.afegirQuadre(nouQuadre);
-//		String jsonBody = mapper.writeValueAsString(registre3);
-//					
-//		// botigaService.afegirQuadre(int id_botiga, String nom, String autor); 
-//		Mockito.when(botigaService.afegirQuadre(2,"Els ciclistes", "Pitxot")).thenReturn(registre3);
-//		// Comprovem el resultat
-//		this.mockMvc.perform (post ("/shops/{id}/pictures", 2 ))
-//				.andExpect(status().isOk())	
-//				.andExpect(jsonPath("$[0].id", is(2)))
-//				.andExpect(jsonPath("$[0].nom", is("Botiga tres")))
-//				.andExpect(jsonPath("$[0].quadres.size").isNotEmpty())				
-//				.andDo(print());
-//	}
-//	
-	
 	/**
 	 * post /shops/{id}/pictures
 	 * 
