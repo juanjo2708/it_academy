@@ -1,0 +1,24 @@
+
+POST: /players : 						Crea un jugador 
+POST /players/{id}/games/ :		Un jugador específic realitza una tirada  dels daus.  
+
+DELETE /players/{id}/games: 		Elimina les tirades del jugador 
+
+PUT /players : 							Modifica el nom del jugador
+
+GET /`players/list						Retorna el llistat de tots els jugadors
+GET /players/: 							Retorna el llistat de tots  els jugadors del sistema  amb el seu  percentatge mig  d’èxits   
+GET /players/{id}/games: 			Retorna el llistat de jugades per un jugador.  
+GET /players/ranking: 				Retorna el ranking  mig de tots els   jugadors del sistema .  És a dir, el  percentatge mig  d’èxits. 
+GET /players/ranking/loser: 		Retorna el jugador  amb pitjor percentatge d’èxit  
+GET /players/ranking/winner: 	Retorna el  jugador amb  pitjor percentatge   d’èxit 
+
+
+En el mapatge de la relació manyToOne de jugador sobre Jugada no he pogut implementar el que la documentació m'indica, es a dir 
+el codi següent:
+	
+	
+Un cop consultades direfents fonts al respecte l'única forma que he trobat per implementar la relació i que el resultat a la BD sigui correcte ha estat
+el codi  seguent: 
+	
+	
