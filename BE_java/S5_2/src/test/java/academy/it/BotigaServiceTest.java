@@ -4,7 +4,6 @@ package academy.it;
 // https://www.youtube.com/watch?v=SJ2hwfdFMxY
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -19,10 +18,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import academy.it.entity.Botiga;
+import academy.it.entity.Quadre;
 import academy.it.exceptions.ResourceNotFoundException;
 import academy.it.repository.IbotigaRepository;
 import academy.it.service.BotigaService;
-import antlr.collections.List;
 
 class BotigaServiceTest {
 	Botiga botigaEntt;
@@ -107,21 +106,68 @@ class BotigaServiceTest {
 				
 		assertEquals("La botiga amb id 0 no s'ha trobat", exception.getMessage());		
 	}
-// ------------------------------------------------------------------------------------------------	
-	
+// ------------------------------------------------------------------------------------------------		
 	@Test
 	final void testAfegirQuadre() {
-		fail("Not yet implemented");
+		
+		//setup
+		when(botigaRepository.save(any())).thenReturn(botigaEntt);
+		when(botigaRepository.findById(0)).thenReturn(Optional.of(botigaEntt));
+		
+		// execute service
+		Botiga botigaResult = botigaService.afegirQuadre(0, "La noia del llac", "Melcior Comes");
+			
+		//asserts response
+		assertNotNull(botigaResult);
+		assertEquals(1, botigaResult.getQuadres().size());	
+		
 	}
-
+// ------------------------------------------------------------------------------------------------	
 	@Test
 	final void testLlistarQuadresBotiga() {
-		fail("Not yet implemented");
+		// Afegim quadres a la botiga.
+		Quadre quadre1 = new Quadre("quadre 1","autor 1");
+		Quadre quadre2 = new Quadre("quadre 2","autor 2");
+		Quadre quadre3 = new Quadre("quadre 3","autor 3");
+		Quadre quadre4 = new Quadre("quadre 4","autor 4");
+		botigaEntt.afegirQuadre(quadre1);
+		botigaEntt.afegirQuadre(quadre2);
+		botigaEntt.afegirQuadre(quadre3);
+		botigaEntt.afegirQuadre(quadre4);
+				
+		//setup
+	    when(botigaRepository.findById(0)).thenReturn(Optional.of(botigaEntt));
+				
+		// execute service		
+		Botiga botigaResult = botigaService.llistarQuadresBotiga(0);
+				
+		//asserts response
+	    assertNotNull(botigaResult);
+		assertEquals(4, botigaResult.getQuadres().size());	
 	}
 
 	@Test
 	final void testCremarQuadres() {
-		fail("Not yet implemented");
+		// Afegim quadres a la botiga.
+		Quadre quadre1 = new Quadre("quadre 1","autor 1");
+		Quadre quadre2 = new Quadre("quadre 2","autor 2");
+		Quadre quadre3 = new Quadre("quadre 3","autor 3");
+		Quadre quadre4 = new Quadre("quadre 4","autor 4");
+		botigaEntt.afegirQuadre(quadre1);
+		botigaEntt.afegirQuadre(quadre2);
+		botigaEntt.afegirQuadre(quadre3);
+		botigaEntt.afegirQuadre(quadre4);
+		
+		//setup
+	    when(botigaRepository.findById(0)).thenReturn(Optional.of(botigaEntt));
+	    when(botigaRepository.save(any())).thenReturn(botigaEntt);
+	    
+	    // execute service		
+	    Botiga botigaResult = botigaService.cremarQuadres(0);
+	    
+	    //asserts response
+	    assertNotNull(botigaResult);
+		assertEquals(0, botigaResult.getQuadres().size());	
 	}
 
 }

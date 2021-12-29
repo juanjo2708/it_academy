@@ -4,7 +4,6 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import academy.it.entity.Botiga;
@@ -130,7 +129,7 @@ public class BotigaService {
 	 * 
 	 * @return	ResponseEntity <Botiga>
 	 */
-	public ResponseEntity <Botiga> cremarQuadres(int idBotiga){
+	public Botiga cremarQuadres(int idBotiga){
 		
 		// Determino is existeix la botiga, Envio missatge d'error si no existeix.
 		Botiga botigaId =this.botigaRepositori.findById(idBotiga)
@@ -140,7 +139,7 @@ public class BotigaService {
 		botigaId.getQuadres().clear();
 		botigaRepositori.save(botigaId);
 		
-		return ResponseEntity.ok().body(botigaId);
+		return botigaId;
 	}	
 	
 }

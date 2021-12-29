@@ -1,6 +1,9 @@
 package academy.it;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -9,30 +12,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-
 import academy.it.controller.BotigaController;
 import academy.it.entity.Botiga;
 import academy.it.entity.Quadre;
 import academy.it.exceptions.ResourceNotFoundException;
 import academy.it.repository.IbotigaRepository;
 import academy.it.service.BotigaService;
-import ch.qos.logback.core.net.ObjectWriter;
 
 
 // Spring injecta automàticament la dependència del servei al controlador
@@ -47,6 +45,9 @@ public class BotigaControllerTest {
 	//(si no ho fem, el context de l'aplicació no pot iniciar-se) 
 	@MockBean
 	private BotigaService botigaService;
+	
+	@MockBean
+	private IbotigaRepository botigaRepository;
 		
 	/**
 	 *  get /shops/{id}
@@ -71,6 +72,28 @@ public class BotigaControllerTest {
 			.andExpect(MockMvcResultMatchers.jsonPath(".capacitat").value(120))
 			.andDo(print());
 	}
+	
+	/**
+	 * getBotiga_id_NotFound
+	 * 
+	 * @throws Exception		ResourceNotFoundException
+	 */
+	@Test
+	@DisplayName ("Botiga indicada by Id_botiga not found   get /shops/id_botiga")
+	public void getBotiga_id_NotFound() throws Exception {
+		
+		Botiga registre0 = new Botiga ("Botiga zero",120);
+		registre0.setId(0);
+				
+		//Fem un Mock de botigaService.obtenirBotiga_id();		
+		when (botigaService.obtenirBotigaId(registre0.getId())).thenThrow(ResourceNotFoundException.class);
+		
+		this.mockMvc.perform (get ("/shops/{id}",registre0.getId()))
+		.andExpect(status().isNotFound())		
+		.andDo(print());
+				
+	}
+	
 	
 	/**
 	 * get /shops
