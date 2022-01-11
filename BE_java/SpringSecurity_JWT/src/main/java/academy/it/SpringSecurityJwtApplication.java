@@ -24,12 +24,12 @@ public class SpringSecurityJwtApplication {
 	@PostConstruct
 	public void initUsers() {
 		List<User> users = Stream.of(
-                new User("javatechie", "password", "javatechie@gmail.com"),
                 new User("user1", "pwd1", "user1@gmail.com"),
                 new User("user2", "pwd2", "user2@gmail.com"),
                 new User("user3", "pwd3", "user3@gmail.com")
         ).collect(Collectors.toList());
         userRepository.saveAll(users);
+        
 	}
 
 }
