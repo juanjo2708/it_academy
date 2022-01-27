@@ -1,0 +1,29 @@
+[{
+  "_id": {
+    "$oid": "61f1254467fd6d64f13b438c"
+  },
+  "data": {
+    "$date": "2021-05-22T22:00:00Z"
+  },
+  "id_comentari": {
+    "$oid": "61f1171b67fd6d64f13b4352"
+  },
+  "id_usuari": {
+    "$oid": "61f0e7d467fd6d64f13b42d7"
+  },
+  "like": true
+},{
+  "_id": {
+    "$oid": "61f126e367fd6d64f13b4397"
+  },
+  "data": {
+    "$date": "2021-03-12T22:00:00Z"
+  },
+  "id_comentari": {
+    "$oid": "61f118a567fd6d64f13b435f"
+  },
+  "id_usuari": {
+    "$oid": "61f0e1a867fd6d64f13b42b6"
+  },
+  "like": true
+}]

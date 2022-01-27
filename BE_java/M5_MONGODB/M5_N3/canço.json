@@ -1,0 +1,77 @@
+[{
+  "_id": {
+    "$oid": "61f2403867fd6d64f13b43bc"
+  },
+  "album": {
+    "id": {
+      "$oid": "61f240a667fd6d64f13b43bd"
+    },
+    "titol": "Els dies perduts",
+    "anyPublicacio": "2022",
+    "img": "C:/spotify/img/covers"
+  },
+  "artista": {
+    "id_artista": {
+      "$oid": "61f2418b67fd6d64f13b43be"
+    },
+    "nom": "Toni Martorell",
+    "categoriaMusical": {
+      "id": {
+        "$oid": "61f2422667fd6d64f13b43bf"
+      },
+      "categoria": [
+        "Fokt",
+        "Tradicional"
+      ]
+    }
+  },
+  "durada": {
+    "$numberDecimal": "2.30"
+  },
+  "reproduccions": 4,
+  "titol": "la conga",
+  "categoriaMusical": [
+    "Tradicional",
+    "Castellano",
+    "Popular"
+  ]
+},{
+  "_id": {
+    "$oid": "61f243ff67fd6d64f13b43c0"
+  },
+  "album": {
+    "id": {
+      "$oid": "61f240a667fd6d64f13b43bd"
+    },
+    "titol": "Canto jo i tu la balles",
+    "anyPublicacio": "2018",
+    "img": "C:/spotify/img/covers/cantoJo"
+  },
+  "artista": {
+    "id_artista": {
+      "$oid": "61f2441667fd6d64f13b43c1"
+    },
+    "nom": "Carla Portell",
+    "categoriaMusical": {
+      "id": {
+        "$oid": "61f2422667fd6d64f13b43bf"
+      },
+      "categoria": [
+        "Folk",
+        "Tradicional",
+        "Català"
+      ]
+    }
+  },
+  "durada": {
+    "$numberDecimal": "2.40"
+  },
+  "reproduccions": 10,
+  "titol": "El ball de plaça",
+  "categoriaMusical": [
+    "Tradicional",
+    "Català",
+    "Popular",
+    "Folk"
+  ]
+}]

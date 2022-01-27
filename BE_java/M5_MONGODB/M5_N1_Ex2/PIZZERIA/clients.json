@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "60e14773cb638f79ba1a9436"
+  },
+  "nom": "Josep",
+  "cognoms": "Martí",
+  "adreca": {
+    "carrer": "Recoder 25",
+    "cpostal": "08229",
+    "lloc": {
+      "localitat": "Terrassa",
+      "provincia": "Barcelona"
+    }
+  },
+  "telefon": "987123654"
+},{
+  "_id": {
+    "$oid": "60e14c39cb638f79ba1a9437"
+  },
+  "nom": "Aina",
+  "cognoms": "Mercat",
+  "adreca": {
+    "carrer": "Rambla poblenou 25",
+    "cpostal": "08223",
+    "lloc": {
+      "localitat": "Barcelona",
+      "provincia": "Barcelona"
+    }
+  },
+  "telefon": "123465879"
+}]

@@ -1,0 +1,67 @@
+[{
+  "_id": {
+    "$oid": "60e15799cb638f79ba1a943d"
+  },
+  "producte": {
+    "nom": "Pizza napolitana",
+    "categoria": "Pizza",
+    "preu": 12.3
+  },
+  "Quantitat": 1,
+  "id_comanda": "60e15079cb638f79ba1a9438"
+},{
+  "_id": {
+    "$oid": "60e15859cb638f79ba1a943e"
+  },
+  "producte": {
+    "nom": "Hamburgesa jardinera",
+    "categoria": "Hamburgesas",
+    "preu": 16.67
+  },
+  "Quantitat": 2,
+  "id_comanda": "60e15079cb638f79ba1a9438"
+},{
+  "_id": {
+    "$oid": "60e158b9cb638f79ba1a943f"
+  },
+  "producte": {
+    "nom": "Cervesa 1/2",
+    "categoria": "Begudes",
+    "preu": 3.67
+  },
+  "Quantitat": 2,
+  "id_comanda": "60e15079cb638f79ba1a9438"
+},{
+  "_id": {
+    "$oid": "60e159b8cb638f79ba1a9440"
+  },
+  "id_comanda": "60e151e5cb638f79ba1a9439",
+  "producte": {
+    "nom": "Cervesa 1/2",
+    "categoria": "Begudes",
+    "preu": 3.67
+  },
+  "Quantitat": 4
+},{
+  "_id": {
+    "$oid": "60e15a80cb638f79ba1a9441"
+  },
+  "id_comanda": "60e151e5cb638f79ba1a9439",
+  "producte": {
+    "nom": "Pizza carbonara",
+    "categoria": "Pizzes",
+    "preu": 13.67
+  },
+  "Quantitat": 1
+},{
+  "_id": {
+    "$oid": "60e15af7cb638f79ba1a9442"
+  },
+  "id_comanda": "60e151e5cb638f79ba1a9439",
+  "producte": {
+    "nom": "Hamburgesa completa",
+    "categoria": "Hamburgesas",
+    "preu": 18.67
+  },
+  "Quantitat": 1
+}]

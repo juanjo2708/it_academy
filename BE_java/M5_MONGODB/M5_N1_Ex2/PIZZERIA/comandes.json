@@ -1,0 +1,89 @@
+[{
+  "_id": {
+    "$oid": "60e15079cb638f79ba1a9438"
+  },
+  "data_hora": "2021/07/01 12:23:45",
+  "domicili": true,
+  "Q_pizzes": 2,
+  "Q_hamburgers": 1,
+  "Q_begudes": 3,
+  "totalComanda": 38.45,
+  "id_client": "60e14773cb638f79ba1a9436",
+  "botiga": {
+    "adreca": "Campins, 23",
+    "cpostal": "08011",
+    "localitat": "Barcelona",
+    "provincia": "Barcelona"
+  },
+  "lliuradaPer": {
+    "nom": "Carles",
+    "cognoms": "Llorenç Flequè",
+    "telefon": "123987456"
+  }
+},{
+  "_id": {
+    "$oid": "60e151e5cb638f79ba1a9439"
+  },
+  "data_hora": "2021/07/10 20:31:45",
+  "domicili": false,
+  "Q_pizzes": 1,
+  "Q_hamburgers": 1,
+  "Q_begudes": 2,
+  "totalComanda": 24.42,
+  "id_client": "60e14c39cb638f79ba1a9437",
+  "botiga": {
+    "adreca": "Republica, 23",
+    "cpostal": "08223",
+    "localitat": "Terrassa",
+    "provincia": "Barcelona"
+  },
+  "lliuratPer": {
+    "nom": "Manelic",
+    "cognoms": "Sabater i Roca",
+    "telefon": "123789456"
+  }
+},{
+  "_id": {
+    "$oid": "60e1525acb638f79ba1a943a"
+  },
+  "data_hora": "2021/07/01 19:31:45",
+  "domicili": true,
+  "Q_pizzes": 1,
+  "Q_hamburgers": 0,
+  "Q_begudes": 1,
+  "totalComanda": 14.42,
+  "id_client": "60e14c39cb638f79ba1a9437",
+  "botiga": {
+    "adreca": "Calter, 23",
+    "cpostal": "08013",
+    "localitat": "Barcelona",
+    "provincia": "Barcelona"
+  },
+  "lliuratPer": {
+    "nom": "Núria",
+    "cognoms": "Català i Roca",
+    "telefon": "123987456"
+  }
+},{
+  "_id": {
+    "$oid": "60e152c8cb638f79ba1a943b"
+  },
+  "data_hora": "2021/07/14 16:31:33",
+  "domicili": true,
+  "Q_pizzes": 2,
+  "Q_hamburgers": 0,
+  "Q_begudes": 2,
+  "totalComanda": 23.42,
+  "id_client": "60e14c39cb638f79ba1a9437",
+  "botiga": {
+    "adreca": "Campins, 23",
+    "cpostal": "08011",
+    "localitat": "Barcelona",
+    "provincia": "Barcelona"
+  },
+  "lliuratPer": {
+    "nom": "Josep",
+    "cognoms": "Martí Llorenç",
+    "telefon": "123987456"
+  }
+}]

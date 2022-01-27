@@ -1,6 +1,7 @@
-package it.academy.service;
+package cat.academy.it.S52_F2_2.service;
 
-import it.academy.exceptions.ResourceNotFoundException;
+import cat.academy.it.S52_F2_2.exceptions.ResourceNotFoundException;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,21 +10,17 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.academy.entity.DadesJugador;
-import it.academy.entity.Dau;
-import it.academy.entity.Jugada;
-import it.academy.entity.Jugador;
-import it.academy.repository.IjugadorRepository;
-import it.academy.repository.IJugadorSQLRepository;
+import cat.academy.it.S52_F2_2.entity.DadesJugador;
+import cat.academy.it.S52_F2_2.entity.Dau;
+import cat.academy.it.S52_F2_2.entity.Jugada;
+import cat.academy.it.S52_F2_2.entity.Jugador;
+import cat.academy.it.S52_F2_2.repository.IjugadorRepository;
 
 @Service
 public class JugadorServiceImpl  implements IjugadorService{
 
 	@Autowired
 	IjugadorRepository jugadorRepository;
-	
-	@Autowired 
-	IJugadorSQLRepository jugadorSQLRepository;
 	
 	//@Autowired
 	//IjugadaRepository jugadaRepository;
@@ -33,8 +30,7 @@ public class JugadorServiceImpl  implements IjugadorService{
 	public Jugador saveJugador(Jugador jugador) {
 		// Determinem si és un jugador ANÒNIM, o si existeix
 		if(jugador.getNom().equals("ANONIM")){								// Si és anònim el creem i el retornem
-			jugadorSQLRepository.save(jugador);    							  // Emma. a la BD de Mysql 
-			return jugadorRepository.save(jugador);							 // Emma. a la BD de MongoDB	
+			return jugadorRepository.save(jugador);
 		}else if (findByJugadorNom(jugador.getNom()) ==null) {	 // Si el jugador no existeix el creem i el retornem
 			return jugadorRepository.save(jugador);
 		}else {																				// Si el jugador existeix generem una excepció indicant la duplicitat.

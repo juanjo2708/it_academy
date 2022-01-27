@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "60e008b2cb638f79ba1a942f"
+  },
+  "marca": "Starter",
+  "gradua_d": 0.8,
+  "gradua_e": 0.7,
+  "tipus": "metàl·lica",
+  "color_d": "verd oliva",
+  "color_e": "verd oliva",
+  "preu": 245.3,
+  "proveidor": "60df1167cb638f79ba1a942c"
+},{
+  "_id": {
+    "$oid": "60e00adccb638f79ba1a9431"
+  },
+  "marca": "Cartier",
+  "gradua_d": 0.8,
+  "gradua_e": 0.7,
+  "tipus": "metàl·lica",
+  "color_d": "verd oliva",
+  "color_e": "verd oliva",
+  "preu": 245.3,
+  "proveidor": "60df1167cb638f79ba1a942c"
+}]

@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "60e01235cb638f79ba1a9433"
+  },
+  "nom": "juanjo Campos",
+  "cpostal": "08223",
+  "telefon": "123456789",
+  "email": "juanjo@gmail.com",
+  "data_registre": "2021/07/02",
+  "compras": [
+    {
+      "venedor": "Carles",
+      "ulleres_id": "60e008b2cb638f79ba1a942f"
+    },
+    {
+      "venedor": "Rosalia",
+      "ulleres_id": "60e00adccb638f79ba1a9431"
+    }
+  ],
+  "recomanat_per": ""
+},{
+  "_id": {
+    "$oid": "60e0138ccb638f79ba1a9434"
+  },
+  "nom": "Carla Rocamora",
+  "cpostal": "08332",
+  "telefon": "987654321",
+  "email": "rocamora@gmail.com",
+  "data_registre": "2021/06/12",
+  "compras": [
+    {
+      "venedor": "Roc",
+      "ulleres_id": "60e008b2cb638f79ba1a942f"
+    },
+    {
+      "venedor": "Remei",
+      "ulleres_id": "60e00adccb638f79ba1a9431"
+    }
+  ],
+  "recomanat_per": "60e01235cb638f79ba1a9433"
+}]

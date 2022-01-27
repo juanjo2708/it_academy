@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "61f104fd67fd6d64f13b430d"
+  },
+  "data_creacio": {
+    "$date": "2021-08-09T22:00:00Z"
+  },
+  "descripcio": "canal del juanjo",
+  "id_usuari": {
+    "$oid": "61f0e1a867fd6d64f13b42b6"
+  },
+  "nom": "canal juanjo",
+  "subscriptors": [
+    {
+      "$oid": "61f0e7d467fd6d64f13b42d7"
+    },
+    {
+      "$oid": "61f0e89967fd6d64f13b42d8"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61f107ca67fd6d64f13b431e"
+  },
+  "data_creacio": {
+    "$date": "2021-06-24T22:00:00Z"
+  },
+  "descripcio": "canal de l'onna",
+  "id_usuari": {
+    "$oid": "61f0e7d467fd6d64f13b42d7"
+  },
+  "nom": "canal onna",
+  "subscriptors": [
+    {
+      "$oid": "61f0e1a867fd6d64f13b42b6"
+    },
+    {
+      "$oid": "61f0e89967fd6d64f13b42d8"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61f10b0467fd6d64f13b4324"
+  },
+  "data_creacio": {
+    "$date": "2021-04-12T22:00:00Z"
+  },
+  "descripcio": "canal de la mariona",
+  "id_usuari": {
+    "$oid": "61f0e89967fd6d64f13b42d8"
+  },
+  "nom": "canal mariona",
+  "subscriptors": [
+    {
+      "$oid": "61f0e1a867fd6d64f13b42b6"
+    },
+    {
+      "$oid": "61f0e7d467fd6d64f13b42d7"
+    }
+  ]
+}]

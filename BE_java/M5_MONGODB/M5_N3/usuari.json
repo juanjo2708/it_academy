@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "61f199b767fd6d64f13b43b6"
+  },
+  "cpostal": "08225",
+  "data_naixement": {
+    "$date": "2021-01-11T23:00:00Z"
+  },
+  "email": "juanjo2541@gamil.com",
+  "pais": "Catalunya",
+  "password": "12345",
+  "premium": true,
+  "sexe": "home",
+  "usuari": "jcamposca",
+  "albuns_fav": [
+    {
+      "$oid": "61f240a667fd6d64f13b43bd"
+    },
+    {
+      "$oid": "61f240a667fd6d64f13b43bd"
+    }
+  ],
+  "artistes_fav": [
+    {
+      "$oid": "61f2418b67fd6d64f13b43be"
+    },
+    {
+      "$oid": "61f2441667fd6d64f13b43c1"
+    }
+  ],
+  "cancons_fav": [
+    {
+      "$oid": "61f2403867fd6d64f13b43bc"
+    },
+    {
+      "$oid": "61f243ff67fd6d64f13b43c0"
+    }
+  ],
+  "playlist": [
+    {
+      "$oid": "61f19df367fd6d64f13b43b9"
+    }
+  ],
+  "subscripcio": {
+    "id_subscripcio": {
+      "$oid": "61f2472d67fd6d64f13b43cf"
+    },
+    "dataInici": {
+      "$date": "2021-12-31T23:00:00Z"
+    },
+    "dataRenovacio": {
+      "$date": "2022-12-31T23:00:00Z"
+    },
+    "Pagament": {
+      "id_pagament": {
+        "$oid": "61f2483167fd6d64f13b43d0"
+      },
+      "data": {
+        "$date": "2021-12-31T23:00:00Z"
+      },
+      "import": "135.12",
+      "targeta": {
+        "id_targeta": {
+          "$oid": "61f248c467fd6d64f13b43d1"
+        },
+        "numero": "123 456 789 23",
+        "mesCaducitat": "08",
+        "anyCaducitat": "2024",
+        "codiSeguretat": "231"
+      }
+    }
+  }
+}]

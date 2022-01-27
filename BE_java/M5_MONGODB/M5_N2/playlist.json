@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "61f11ffc67fd6d64f13b4381"
+  },
+  "data": {
+    "$date": "2021-09-22T22:00:00Z"
+  },
+  "estat": "public",
+  "id_usuari": {
+    "$oid": "61f0e1a867fd6d64f13b42b6"
+  },
+  "nom": "playlist juanjo",
+  "videos_ids": [
+    {
+      "$oid": "61f0d6ce67fd6d64f13b42ad"
+    },
+    {
+      "$oid": "61f0f52d67fd6d64f13b42e6"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61f121c867fd6d64f13b4384"
+  },
+  "data": {
+    "$date": "2021-11-12T22:00:00Z"
+  },
+  "estat": "public",
+  "id_usuari": {
+    "$oid": "61f0e1a867fd6d64f13b42b6"
+  },
+  "nom": "playlist juanjo1",
+  "videos_ids": [
+    {
+      "$oid": "61f0d6ce67fd6d64f13b42ad"
+    },
+    {
+      "$oid": "61f0f52d67fd6d64f13b42e6"
+    }
+  ]
+}]

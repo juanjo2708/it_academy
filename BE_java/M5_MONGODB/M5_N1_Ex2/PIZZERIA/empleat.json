@@ -1,0 +1,106 @@
+[{
+  "_id": {
+    "$oid": "60e31a1e371e8ece9b1f0771"
+  },
+  "nom": "Manelic",
+  "cognoms": "Sabater i Roca",
+  "nif": "987654321R",
+  "telefon": "123987456",
+  "cuiner": false,
+  "botiga": {
+    "adreca": "Republica, 23",
+    "cpostal": "08223",
+    "localitat": "Terrassa",
+    "provincia": "Barcelona"
+  }
+},{
+  "_id": {
+    "$oid": "60e31a73371e8ece9b1f0772"
+  },
+  "nom": "Núria",
+  "cognoms": "Català i Roca",
+  "nif": "987654321R",
+  "telefon": "123987456",
+  "cuiner": false,
+  "botiga": {
+    "adreca": "Calter, 23",
+    "cpostal": "08013",
+    "localitat": "Barcelona",
+    "provincia": "Barcelona"
+  }
+},{
+  "_id": {
+    "$oid": "60e31b0c371e8ece9b1f0773"
+  },
+  "nom": "Susana",
+  "cognoms": "Sanz Llorenç",
+  "nif": "987654321R",
+  "telefon": "123987456",
+  "cuiner": true,
+  "botiga": {
+    "adreca": "Campins, 23",
+    "cpostal": "08011",
+    "localitat": "Barcelona",
+    "provincia": "Barcelona"
+  }
+},{
+  "_id": {
+    "$oid": "60e3233f371e8ece9b1f0783"
+  },
+  "nom": "Josep",
+  "cognoms": "Martí Llorenç",
+  "nif": "987654321R",
+  "telefon": "123987456",
+  "cuiner": false,
+  "botiga": {
+    "adreca": "Campins, 23",
+    "cpostal": "08011",
+    "localitat": "Barcelona",
+    "provincia": "Barcelona"
+  }
+},{
+  "_id": {
+    "$oid": "60e3237d371e8ece9b1f0784"
+  },
+  "nom": "Carles",
+  "cognoms": "Llorenç Flequè",
+  "nif": "987654321R",
+  "telefon": "123987456",
+  "cuiner": false,
+  "botiga": {
+    "adreca": "Campins, 23",
+    "cpostal": "08011",
+    "localitat": "Barcelona",
+    "provincia": "Barcelona"
+  }
+},{
+  "_id": {
+    "$oid": "60e324dd371e8ece9b1f0785"
+  },
+  "nom": "Sara",
+  "cognoms": "Llorenç Flequè",
+  "nif": "987654321R",
+  "telefon": "123987456",
+  "cuiner": false,
+  "botiga": {
+    "adreca": "Calter, 23",
+    "cpostal": "08013",
+    "localitat": "Barcelona",
+    "provincia": "Barcelona"
+  }
+},{
+  "_id": {
+    "$oid": "60e3259f371e8ece9b1f0786"
+  },
+  "nom": "Anna",
+  "cognoms": "Soler i Flequer",
+  "nif": "987654321R",
+  "telefon": "123987456",
+  "cuiner": false,
+  "botiga": {
+    "adreca": "Republica, 23",
+    "cpostal": "08023",
+    "localitat": "Terrassa",
+    "provincia": "Barcelona"
+  }
+}]

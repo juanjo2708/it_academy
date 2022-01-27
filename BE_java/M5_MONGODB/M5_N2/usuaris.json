@@ -1,0 +1,122 @@
+[{
+  "_id": {
+    "$oid": "61f0e1a867fd6d64f13b42b6"
+  },
+  "cpostal": "08523",
+  "data_naixement": {
+    "$date": "1975-10-31T23:00:00Z"
+  },
+  "email": "juanjo1425@hotmail.com",
+  "pais": "Catalunya",
+  "password": "12345",
+  "sexe": "home",
+  "usuari": "jcamposca",
+  "canal": {
+    "id_canal": {
+      "$oid": "61f104fd67fd6d64f13b430d"
+    },
+    "nom": "canal juanjo",
+    "descripcio": "descripció del canal del juanjo",
+    "data_creacio": {
+      "$date": "2021-08-09T22:00:00Z"
+    }
+  },
+  "canals_subs": [
+    {
+      "$oid": "61f107ca67fd6d64f13b431e"
+    },
+    {
+      "$oid": "61f10b0467fd6d64f13b4324"
+    }
+  ],
+  "comentaris": [
+    {
+      "$oid": "61f1171b67fd6d64f13b4352"
+    }
+  ],
+  "playlist": [
+    {
+      "$oid": "61f11ffc67fd6d64f13b4381"
+    },
+    {
+      "$oid": "61f121c867fd6d64f13b4384"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61f0e7d467fd6d64f13b42d7"
+  },
+  "cpostal": "08224",
+  "data_naixement": {
+    "$date": {
+      "$numberLong": "-35686800000"
+    }
+  },
+  "email": "onna2345@gmail.com",
+  "pais": "Catalunya",
+  "password": "54321",
+  "sexe": "dona",
+  "usuari": "ona23",
+  "canal": {
+    "id_canal": {
+      "$oid": "61f107ca67fd6d64f13b431e"
+    },
+    "nom": "canal onna",
+    "descripcio": "Canal de l'onna",
+    "data_creacio": {
+      "$date": "2021-06-24T22:00:00Z"
+    }
+  },
+  "canals_subs": [
+    {
+      "$oid": "61f10b0467fd6d64f13b4324"
+    },
+    {
+      "$oid": "61f104fd67fd6d64f13b430d"
+    }
+  ],
+  "comentaris": [
+    {
+      "$oid": "61f118a567fd6d64f13b435f"
+    },
+    {
+      "$oid": "61f119d867fd6d64f13b4369"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61f0e89967fd6d64f13b42d8"
+  },
+  "cpostal": "22134",
+  "data_naixement": {
+    "$date": "1981-02-11T23:00:00Z"
+  },
+  "email": "mariona12@gmx.com",
+  "pais": "Catalunya",
+  "password": "11223344",
+  "sexe": "dona",
+  "usuari": "mar123",
+  "canal": {
+    "id_canal": {
+      "$oid": "61f10b0467fd6d64f13b4324"
+    },
+    "nom": "canal mariona",
+    "descripcio": "canal de la mariona",
+    "data_creacio": {
+      "$date": "2021-04-12T22:00:00Z"
+    }
+  },
+  "canals_subs": [
+    {
+      "$oid": "61f104fd67fd6d64f13b430d"
+    },
+    {
+      "$oid": "61f107ca67fd6d64f13b431e"
+    }
+  ],
+  "comentaris": [
+    {
+      "$oid": "61f11a1b67fd6d64f13b436a"
+    }
+  ]
+}]

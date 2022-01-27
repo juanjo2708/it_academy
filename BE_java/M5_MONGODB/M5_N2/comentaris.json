@@ -1,0 +1,67 @@
+[{
+  "_id": {
+    "$oid": "61f1171b67fd6d64f13b4352"
+  },
+  "comentari": "comentari video 1",
+  "data": {
+    "$date": "2021-02-28T23:00:00Z"
+  },
+  "id_usuari": {
+    "$oid": "61f0e1a867fd6d64f13b42b6"
+  },
+  "id_video": {
+    "$oid": "61f0f52d67fd6d64f13b42e6"
+  },
+  "likesDislakes": [
+    {
+      "$oid": "61f1254467fd6d64f13b438c"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61f118a567fd6d64f13b435f"
+  },
+  "comentari": "comentari video 2",
+  "data": {
+    "$date": "2021-05-12T23:00:00Z"
+  },
+  "id_usuari": {
+    "$oid": "61f0e7d467fd6d64f13b42d7"
+  },
+  "id_video": {
+    "$oid": "61f0f52d67fd6d64f13b42e6"
+  },
+  "likesDislakes": [
+    {
+      "$oid": "61f126e367fd6d64f13b4397"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61f119d867fd6d64f13b4369"
+  },
+  "comentari": "comentari video 3",
+  "data": {
+    "$date": "2021-06-02T23:00:00Z"
+  },
+  "id_usuari": {
+    "$oid": "61f0e7d467fd6d64f13b42d7"
+  },
+  "id_video": {
+    "$oid": "61f0d6ce67fd6d64f13b42ad"
+  }
+},{
+  "_id": {
+    "$oid": "61f11a1b67fd6d64f13b436a"
+  },
+  "comentari": "comentari video 4",
+  "data": {
+    "$date": "2021-06-22T23:00:00Z"
+  },
+  "id_usuari": {
+    "$oid": "61f0e89967fd6d64f13b42d8"
+  },
+  "id_video": {
+    "$oid": "61f0d6ce67fd6d64f13b42ad"
+  }
+}]

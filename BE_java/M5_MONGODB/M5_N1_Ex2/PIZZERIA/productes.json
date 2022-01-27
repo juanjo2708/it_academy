@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "60e15cffcb638f79ba1a9443"
+  },
+  "nom": "Pizza napolitana",
+  "descripcio": "massa fina, amb boletus per a 4pax.",
+  "imatge": "napolitana.jpg",
+  "preu": 14.37,
+  "categoria": "Pizzes"
+},{
+  "_id": {
+    "$oid": "60e15db9cb638f79ba1a9444"
+  },
+  "nom": "Pizza carbonara",
+  "descripcio": "massa fina, crema de llet per a 4pax.",
+  "imatge": "carbonara.jpg",
+  "preu": 12.37,
+  "categoria": "Pizzes"
+},{
+  "_id": {
+    "$oid": "60e15e2acb638f79ba1a9445"
+  },
+  "nom": "Llimonada 200cc",
+  "descripcio": "beguda carbonatada amb sucre",
+  "imatge": "llimonada.jpg",
+  "preu": 2.37,
+  "categoria": "Begudes"
+},{
+  "_id": {
+    "$oid": "60e15e88cb638f79ba1a9446"
+  },
+  "nom": "cervesa 1/2",
+  "descripcio": "suc de cibada, beguda espirituosa",
+  "imatge": "cervesa_gran.jpg",
+  "preu": 2.45,
+  "categoria": "Begudes"
+},{
+  "_id": {
+    "$oid": "60e15f38cb638f79ba1a9447"
+  },
+  "nom": "Hamburgesa jardinera",
+  "descripcio": "amb tomàquet, enciam i cogombre",
+  "imatge": "ham_jardinera.jpg",
+  "preu": 12.45,
+  "categoria": "Hamburgesas"
+}]

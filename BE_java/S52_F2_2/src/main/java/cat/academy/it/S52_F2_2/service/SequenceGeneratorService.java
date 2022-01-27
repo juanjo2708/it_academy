@@ -1,6 +1,4 @@
-package it.academy.service;
-
-
+package cat.academy.it.S52_F2_2.service;
 
 import java.util.Objects;
 
@@ -11,7 +9,8 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 
-import it.academy.entity.DatabaseSequence;
+
+import cat.academy.it.S52_F2_2.entity.DatabaseSequence;
 
 @Service
 public class SequenceGeneratorService {

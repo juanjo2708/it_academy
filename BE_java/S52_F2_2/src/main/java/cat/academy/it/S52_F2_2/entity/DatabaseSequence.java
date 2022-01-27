@@ -1,4 +1,4 @@
-package it.academy.entity;
+package cat.academy.it.S52_F2_2.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

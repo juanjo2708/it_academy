@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "60df1167cb638f79ba1a942c"
+  },
+  "nom": "Joan Campos Dominguez",
+  "telefon": "123456789",
+  "fax": "987654321",
+  "nif": "65965123E",
+  "adreca": {
+    "carrer": "Consell de Cent 24 2,1",
+    "numero": 32,
+    "pis": "3r",
+    "porta": "1a",
+    "cpostal": "08223",
+    "ciutat": "Terrassa",
+    "pais": "Catalunya"
+  }
+},{
+  "_id": {
+    "$oid": "60df1427cb638f79ba1a942e"
+  },
+  "nom": "Mariona Soler i batalla",
+  "telefon": "123456789",
+  "fax": "987654321",
+  "nif": "65965123E",
+  "adreca": {
+    "carrer": "Diputació 24 2,1",
+    "numero": 2,
+    "pis": "1r",
+    "porta": "1a",
+    "cpostal": "08208",
+    "ciutat": "Barcelona",
+    "pais": "Catalunya"
+  }
+}]

@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "61f0d6ce67fd6d64f13b42ad"
+  },
+  "titol": "Spring boot inicial",
+  "descripcio": "Idea general del framework",
+  "dislikes": 2,
+  "durada": 12.35,
+  "grandaria": "1265",
+  "likes": 10,
+  "nom_arxiu": "spring0.mp4",
+  "reproduccions": 12,
+  "thumnail": "thumnail",
+  "Estat": "public",
+  "usuari": {
+    "usuari_Id": "61f0e1a867fd6d64f13b42b6",
+    "email": "juanjo1425@hotmail.com",
+    "usuari": "jcamposca",
+    "pais": "Catalunya",
+    "password": "12345",
+    "sexe": "home"
+  },
+  "etiquetes": [
+    "java",
+    "programacio",
+    "it academy"
+  ],
+  "comentaris": [
+    {
+      "$oid": "61f119d867fd6d64f13b4369"
+    },
+    {
+      "$oid": "61f11a1b67fd6d64f13b436a"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61f0f52d67fd6d64f13b42e6"
+  },
+  "titol": "Spring boot injeccio dependencies",
+  "descripcio": "Injeccio Dependències",
+  "dislikes": 1,
+  "durada": 25.35,
+  "grandaria": "1865",
+  "likes": 11,
+  "nom_arxiu": "spring1.mp4",
+  "reproduccions": 12,
+  "thumnail": "thumnail",
+  "Estat": "privat",
+  "usuari": {
+    "usuari_Id": "61f0e7d467fd6d64f13b42d7",
+    "email": "onna2345@gmail.com",
+    "usuari": "ona23",
+    "pais": "Catalunya",
+    "password": "54321",
+    "sexe": "dona"
+  },
+  "etiquetes": [
+    "java",
+    "programacio",
+    "it academy",
+    "cibernarium"
+  ],
+  "comentaris": [
+    {
+      "$oid": "61f1171b67fd6d64f13b4352"
+    },
+    {
+      "$oid": "61f118a567fd6d64f13b435f"
+    }
+  ]
+}]

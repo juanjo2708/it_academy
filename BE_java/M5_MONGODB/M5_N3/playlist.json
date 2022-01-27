@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "61f19df367fd6d64f13b43b9"
+  },
+  "dataCreacio": {
+    "$date": "2021-05-02T22:00:00Z"
+  },
+  "dataEliminacio": {
+    "$date": "2020-12-31T23:00:00Z"
+  },
+  "eliminada": false,
+  "nombreCansons": 3,
+  "titol": "Jazz cofee time",
+  "cançons": [
+    {
+      "$oid": "61f2403867fd6d64f13b43bc"
+    },
+    {
+      "$oid": "61f243ff67fd6d64f13b43c0"
+    }
+  ]
+}]

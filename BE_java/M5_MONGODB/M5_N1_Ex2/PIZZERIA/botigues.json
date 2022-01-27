@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "60e31dfd371e8ece9b1f0776"
+  },
+  "adreca": "Campins, 23",
+  "cpostal": "08011",
+  "localitat": "Barcelona",
+  "provincia": "Barcelona",
+  "empleats": [
+    "60e31b0c371e8ece9b1f0773",
+    "60e3233f371e8ece9b1f0783",
+    "60e3237d371e8ece9b1f0784"
+  ]
+},{
+  "_id": {
+    "$oid": "60e32211371e8ece9b1f077f"
+  },
+  "adreca": "Republica, 23",
+  "cpostal": "08223",
+  "localitat": "Terrassa",
+  "provincia": "Barcelona",
+  "empleats": [
+    "60e31a1e371e8ece9b1f0771",
+    "60e3259f371e8ece9b1f0786"
+  ]
+},{
+  "_id": {
+    "$oid": "60e322bc371e8ece9b1f0780"
+  },
+  "adreca": "Calter, 23",
+  "cpostal": "08013",
+  "localitat": "Barcelona",
+  "provincia": "Barcelona",
+  "empleats": [
+    "60e31a73371e8ece9b1f0772",
+    "60e324dd371e8ece9b1f0785"
+  ]
+}]
